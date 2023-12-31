@@ -51,7 +51,7 @@
 			"/******************************************************************************/"
 			""
 		],
-		"description": "insert default comments for a class cpp file"
+		"description": "default class definition"
 	},
 
 	"class declaration snippet":
@@ -59,8 +59,8 @@
 		"prefix": "class declaration",
 		"body":
 		[
-			"#ifndef ${TM_FILENAME/(.*)/${1:/upcase}/}"
-			"# define ${TM_FILENAME/(.*)/${1:/upcase}/}"
+			"#ifndef ${TM_FILENAME/([^\\.]*)(\\.)*/${1:/upcase}${2:+_}/g}"
+			"# define ${TM_FILENAME/([^\\.]*)(\\.)*/${1:/upcase}${2:+_}/g}"
 			""
 			"$0"
 			"class $TM_FILENAME_BASE"
