@@ -1,0 +1,82 @@
+{
+	"class snippet":
+	{
+		"prefix": "class definition",
+		"body":
+		[
+			"#include \"$TM_FILENAME_BASE.hpp\""
+			""
+			"/******************************************************************************/"
+			"/*						CONSTRUCTORS & DESTRUCTORS							  */"
+			"/******************************************************************************/"
+			""
+			"$TM_FILENAME_BASE::$TM_FILENAME_BASE(void)"
+			"{}"
+			""
+			"$TM_FILENAME_BASE::$TM_FILENAME_BASE($TM_FILENAME_BASE const & src)"
+			"{"
+			"	*this = src;"
+			"}"
+			""
+			"$TM_FILENAME_BASE::~$TM_FILENAME_BASE(void)"
+			"{}"
+			""
+			"/******************************************************************************/"
+			"/*								OPERATORS								  	  */"
+			"/******************************************************************************/"
+			""
+			"$TM_FILENAME_BASE &	$TM_FILENAME_BASE::operator=($TM_FILENAME_BASE const & src)"
+			"{"
+			"	if (this != &src)"
+			"	{"
+			"		this->$1 = src.$1;"
+			"	}"
+			"	return (*this);"
+			"}"
+			""
+			"/******************************************************************************/"
+			"/*								SETTERS										  */"
+			"/******************************************************************************/"
+			""
+			"/******************************************************************************/"
+			"/*								GETTERS										  */"
+			"/******************************************************************************/"
+			""
+			"/******************************************************************************/"
+			"/*							PRIVATE FUNCTIONS								  */"
+			"/******************************************************************************/"
+			""
+			"/******************************************************************************/"
+			"/*							PUBLIC FUNCTIONS								  */"
+			"/******************************************************************************/"
+			""
+		],
+		"description": "insert default comments for a class cpp file"
+	},
+
+	"class declaration snippet":
+	{
+		"prefix": "class declaration",
+		"body":
+		[
+			"#ifndef ${TM_FILENAME/(.*)/${1:/upcase}/}"
+			"# define ${TM_FILENAME/(.*)/${1:/upcase}/}"
+			""
+			"$0"
+			"class $TM_FILENAME_BASE:"
+			"{"
+			"	private:"
+			"		$1"
+			""
+			"	public:"
+			"		$TM_FILENAME_BASE(void);"
+			"		$TM_FILENAME_BASE($TM_FILENAME_BASE const & src);"
+			"		~$TM_FILENAME_BASE(void);"
+			""
+			"		$TM_FILENAME_BASE &	operator=($TM_FILENAME_BASE const & src);"
+			"};"
+			"#endif"
+		],
+		"description": "default class declaration"
+	}
+}
