@@ -84,5 +84,19 @@
 			"#endif"
 		],
 		"description": "default class declaration"
+	},
+
+	"header protection snippet":
+	{
+		"prefix": "header protection",
+		"body":
+		[
+			"#ifndef ${TM_FILENAME/([^\\.]*)(\\.)*/${1:/upcase}${2:+_}/g}"
+			"# define ${TM_FILENAME/([^\\.]*)(\\.)*/${1:/upcase}${2:+_}/g}"
+			""
+			"$0"
+			""
+			"#endif"
+		],
 	}
 }
